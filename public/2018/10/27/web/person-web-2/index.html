@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>个人网页搭建流程-2 | bingolil个人主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#1A4B5A">
+    
+    
+    <meta name="keywords" content="hexo,git,github,node.js">
+    <meta name="description" content="搭建本地项目hexo初始化项目进入电脑cmd命令行，在某个目录下使用hexo init命令，生成hexo初始化项目，如下图所示。                                                                                             hexo init             使用hexo s命令，在浏览器中打开loc">
+<meta name="keywords" content="hexo,git,github,node.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="个人网页搭建流程-2">
+<meta property="og:url" content="https://bingolil.github.io/2018/10/27/web/person-web-2/index.html">
+<meta property="og:site_name" content="bingolil个人主页">
+<meta property="og:description" content="搭建本地项目hexo初始化项目进入电脑cmd命令行，在某个目录下使用hexo init命令，生成hexo初始化项目，如下图所示。                                                                                             hexo init             使用hexo s命令，在浏览器中打开loc">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://bingolil.github.io/images/hexo-init.png">
+<meta property="og:image" content="https://bingolil.github.io/images/hexo-index.png">
+<meta property="og:image" content="https://bingolil.github.io/images/theme-name.png">
+<meta property="og:image" content="https://bingolil.github.io/images/update-1.png">
+<meta property="og:image" content="https://bingolil.github.io/images/update-2.png">
+<meta property="og:image" content="https://bingolil.github.io/images/update-3.png">
+<meta property="og:image" content="https://bingolil.github.io/images/update-4.png">
+<meta property="og:image" content="https://bingolil.github.io/images/github-new.png">
+<meta property="og:image" content="https://bingolil.github.io/images/github-csh.png">
+<meta property="og:image" content="https://bingolil.github.io/images/github-themes.png">
+<meta property="og:image" content="https://bingolil.github.io/images/git-key.png">
+<meta property="og:image" content="https://bingolil.github.io/images/github-newssh-1.png">
+<meta property="og:image" content="https://bingolil.github.io/images/github-newssh-2.png">
+<meta property="og:image" content="https://bingolil.github.io/images/hexo-config1.png">
+<meta property="og:image" content="https://bingolil.github.io/images/hexo-deploy.png">
+<meta property="og:image" content="https://bingolil.github.io/images/hexo-g-d.png">
+<meta property="og:updated_time" content="2018-10-27T06:01:38.894Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="个人网页搭建流程-2">
+<meta name="twitter:description" content="搭建本地项目hexo初始化项目进入电脑cmd命令行，在某个目录下使用hexo init命令，生成hexo初始化项目，如下图所示。                                                                                             hexo init             使用hexo s命令，在浏览器中打开loc">
+<meta name="twitter:image" content="https://bingolil.github.io/images/hexo-init.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="bingolil个人主页" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">bingolil</h5>
+          <a href="mailto:1952724246@qq.com" title="1952724246@qq.com" class="mail">1952724246@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/bingolil" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">个人网页搭建流程-2</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">个人网页搭建流程-2</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-27T06:01:38.634Z" itemprop="datePublished" class="page-time">
+  2018-10-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/个人网页/">个人网页</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搭建本地项目"><span class="post-toc-number">1.</span> <span class="post-toc-text">搭建本地项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#hexo初始化项目"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">hexo初始化项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#hexo主题下载"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">hexo主题下载</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用indigo主题"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">使用indigo主题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改indigo主题"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">修改indigo主题</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搭建GitHub项目"><span class="post-toc-number">2.</span> <span class="post-toc-text">搭建GitHub项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#将本地项目传送的GitHub上"><span class="post-toc-number">3.</span> <span class="post-toc-text">将本地项目传送的GitHub上</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本地git和Github的连接"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">本地git和Github的连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#传送本地项目"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">传送本地项目</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-web/person-web-2" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">个人网页搭建流程-2</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-10-27 14:01:38" datetime="2018-10-27T06:01:38.634Z" itemprop="datePublished">2018-10-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/个人网页/">个人网页</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="搭建本地项目"><a href="#搭建本地项目" class="headerlink" title="搭建本地项目"></a>搭建本地项目</h2><h3 id="hexo初始化项目"><a href="#hexo初始化项目" class="headerlink" title="hexo初始化项目"></a>hexo初始化项目</h3><p>进入电脑cmd命令行，在某个目录下使用hexo init命令，生成hexo初始化项目，如下图所示。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/hexo-init.png" alt="hexo init" title="">
+                </div>
+                <div class="image-caption">hexo init</div>
+            </figure><br>使用hexo s命令，在浏览器中打开localhost:4000地址，可以看到hexo新建的初始化项目页面，如下图所示。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/hexo-index.png" alt="hexo init" title="">
+                </div>
+                <div class="image-caption">hexo init</div>
+            </figure></p>
+<h3 id="hexo主题下载"><a href="#hexo主题下载" class="headerlink" title="hexo主题下载"></a>hexo主题下载</h3><p>新建hexo项目自带默认主题landscape，样式不是特别好看，可去<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo主题</a>查看自己喜欢的主题风格，一般在主题风格的页面都有到该主题源码的GitHub链接，进入到GitHub下载，复制git库的地址，在本地的git命令行下 克隆hexo主题。本个人网页使用的主题地址是<a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="noopener">https://github.com/yscoder/hexo-theme-indigo</a></p>
+<h3 id="使用indigo主题"><a href="#使用indigo主题" class="headerlink" title="使用indigo主题"></a>使用indigo主题</h3><p>将下载好的indigo主题放到本地hexo初始化项目的 ‘/项目名/themes/‘ 下，将 ‘项目名/_config.yml’ 文件中的themes属性由landscape改成indigo（如果是其它主题，themes的属性修改成其它主题名)，如下图所示。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/theme-name.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在该主题的<a href="https://github.com/yscoder/hexo-theme-indigo/wiki/%E5%AE%89%E8%A3%85" target="_blank" rel="noopener">GitHub页面</a>，查看使用该主题的教程，在电脑的cmd环境下跟着教程添加插件。</p>
+<p>在cmd命令行本地项目中使用hexo s命令，打开浏览器localhost:4000地址，可以看见hexo的indigo主题被使用</p>
+<h3 id="修改indigo主题"><a href="#修改indigo主题" class="headerlink" title="修改indigo主题"></a>修改indigo主题</h3><p>在本地项目中，修改 ‘indigo/_config.yml’文件，如下图所示。<br>去掉menu中的weibo和测试<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/update-1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>关闭打赏功能<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/update-2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>去掉title变化功能<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/update-3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>使用自定义样式<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/update-4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="搭建GitHub项目"><a href="#搭建GitHub项目" class="headerlink" title="搭建GitHub项目"></a>搭建GitHub项目</h2><p>使用账号登录GitHub后，进入创建<a href="https://github.com/new" target="_blank" rel="noopener">仓库页面</a>，创建仓库，仓库名为 ‘账号用户名.github.io’（这就是为什么账号的用户名是唯一的），如下图所示。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/github-new.png" alt="GitHub-new" title="">
+                </div>
+                <div class="image-caption">GitHub-new</div>
+            </figure></p>
+<p>打开浏览器，输入地址 ‘GitHub用户名.github.io’，可以看见如下图页面。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/github-csh.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>进入新搭建的GitHub项目的setting设置页面，有一个Git Pages属性，点击 ‘choice a theme’ 按钮，进入GitHub自带主题页面，可以更换 ‘GitHub账号.github.io’ 页面的主题，如下图所示。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/github-themes.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="将本地项目传送的GitHub上"><a href="#将本地项目传送的GitHub上" class="headerlink" title="将本地项目传送的GitHub上"></a>将本地项目传送的GitHub上</h2><h3 id="本地git和Github的连接"><a href="#本地git和Github的连接" class="headerlink" title="本地git和Github的连接"></a>本地git和Github的连接</h3><p>将本地git和GitHub连接需要将本地git的公钥发送的GitHub上。<br><a href="https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5" target="_blank" rel="noopener">官网的教程</a>生成本地公钥。进入git bash命令行下，运行命令 ‘ssh-keygen’，在电脑的C盘里面生成了 .ssh 文件夹，如下图所示。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/git-key.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>进入到GitHub上的添加 ssh key 的页面，如下图。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/github-newssh-1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/github-newssh-2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>打开 id_rsa.pub 文件（该文件为公钥，id_rsa为私钥），将文件中的内容复制粘贴到上图中，点击 Add SSH key 按钮，这样本地的git和GitHub连接完成。</p>
+<h3 id="传送本地项目"><a href="#传送本地项目" class="headerlink" title="传送本地项目"></a>传送本地项目</h3><p>在hexo官网教材中提供了关于hexo项目的<a href="https://hexo.io/zh-cn/docs/deployment" target="_blank" rel="noopener">部署方案</a>，将新建GitHub项目地址复制，在编辑器中打开本地的hexo项目，打开 ‘项目名/_config.yml’ 文件，将GitHub项目地址粘贴到 ‘_config.yml’ 文件中的 deplay 属性下的 git 属性上，如下图所示。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/hexo-config1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在电脑cmd命令到项目地址下，使用命令 ‘npm install hexo-deployer-git –save’ 下载插件，如下图所示。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/hexo-deploy.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>然后运行 ‘hexo g -d’ 或 ‘hexo d -g’ 命令，可以看到，已经将本地git项目传送到新建的GitHub项目上，如下图所示。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://bingolil.github.io/images/hexo-g-d.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>打开浏览器，在地址栏输入 ‘GitHub用户名.github.io’ 可以看到，已经将本地的项目已经在GitHub上了。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-27T06:01:38.894Z" itemprop="dateUpdated">2018-10-27 14:01:38</time>
+</span><br>
+
+
+        
+        留言：标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/10/27/web/person-web-2/" target="_blank" rel="external">https://bingolil.github.io/2018/10/27/web/person-web-2/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://bingolil.github.io">
+            <img src="/img/avatar.jpg" alt="bingolil">
+            bingolil
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bingolil.github.io/2018/10/27/web/person-web-2/&title=《个人网页搭建流程-2》 — bingolil个人主页&pic=https://bingolil.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bingolil.github.io/2018/10/27/web/person-web-2/&title=《个人网页搭建流程-2》 — bingolil个人主页&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bingolil.github.io/2018/10/27/web/person-web-2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《个人网页搭建流程-2》 — bingolil个人主页&url=https://bingolil.github.io/2018/10/27/web/person-web-2/&via=https://bingolil.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bingolil.github.io/2018/10/27/web/person-web-2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/27/web/person-web-1/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">个人网页搭建流程-1</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = 'true';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>bingolil &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://bingolil.github.io/2018/10/27/web/person-web-2/&title=《个人网页搭建流程-2》 — bingolil个人主页&pic=https://bingolil.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://bingolil.github.io/2018/10/27/web/person-web-2/&title=《个人网页搭建流程-2》 — bingolil个人主页&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://bingolil.github.io/2018/10/27/web/person-web-2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《个人网页搭建流程-2》 — bingolil个人主页&url=https://bingolil.github.io/2018/10/27/web/person-web-2/&via=https://bingolil.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://bingolil.github.io/2018/10/27/web/person-web-2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://bingolil.github.io/2018/10/27/web/person-web-2/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+ <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
