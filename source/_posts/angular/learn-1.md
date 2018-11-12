@@ -1,4 +1,4 @@
-﻿title: Angular初级教程-1
+﻿title: Angular教程-1-新手入门
 categories: Augular
 tags: [angular安装,angular]
 ---
@@ -56,7 +56,7 @@ angular新建项目的目录结构如下所示
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [ //项目的引入的css文件
+            "styles": [ //项目引入的css文件
               "src/styles.css"
             ],
             "scripts": [] //项目引入的js文件
