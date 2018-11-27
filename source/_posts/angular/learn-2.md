@@ -1,5 +1,5 @@
 ﻿title: Angular-2-组件通讯
-categories: Augular
+categories: Angular
 tags: [Angular,Angular组件通讯]
 ---
 ## 摘要

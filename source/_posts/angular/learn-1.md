@@ -1,5 +1,5 @@
 ﻿title: Angular教程-1-新手入门
-categories: Augular
+categories: Angular
 tags: [Angular安装,Angular]
 ---
 ## 安装Angular6

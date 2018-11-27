@@ -116,6 +116,14 @@ gitment: false
 #   client_id:
 #   client_secret:
 
+gitalk:
+  enable: true #用来做启用判断可以不用
+  owner: bingolil
+  repo: bingolil.github.io
+  admin: bingolil
+  clientID: 06bf05df047dfdb72d5e
+  clientSecret: f4dde2952395190a291b6b82524d0e4e8841ba69
+
 # Valine Comment system. https://valine.js.org
 valine:
   enable: false # 如果你想使用valine，请将值设置为 true
