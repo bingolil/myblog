@@ -49,7 +49,7 @@ tags: [hexo,git,github,node.js]
 
 ## 搭建GitHub项目
 
-使用账号登录 `GitHub` 后，进入创建[仓库页面](https://github.com/new)，创建仓库，仓库名为 '账号用户名.github.io'（这就是为什么账号的用户名是唯一的），如下图所示。
+使用账号登录 `GitHub` 后，进入创建[仓库页面](https://github.com/new)，创建仓库，仓库名为 '账号用户名.github.io'，如下图所示。
 
 ![GitHub-new](https://bingolil.github.io/images/github-new.png)
 

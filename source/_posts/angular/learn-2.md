@@ -1,4 +1,4 @@
-﻿title: Angular-2-组件通讯
+﻿title: Angular教程-2-组件通讯
 categories: Angular
 tags: [Angular,Angular组件通讯]
 ---
@@ -317,4 +317,4 @@ B.component.html
 
 ![](https://bingolil.github.io/images/angular-session.png)
 
-`Session`:在计算机中，尤其是在网络应用中，称为“会话控制”。`Session`  对象存储特定用户会话所需的属性及配置信息。这样，当用户在应用程序的 `Web` 页之间跳转时，存储在 `Session`  对象中的变量将不会丢失，而是在整个用户会话中一直存在下去。
+`Session` ：在计算机中，尤其是在网络应用中，称为“会话控制”。`Session`  对象存储特定用户会话所需的属性及配置信息。这样，当用户在应用程序的 `Web` 页之间跳转时，存储在 `Session`  对象中的变量将不会丢失，而是在整个用户会话中一直存在下去。
