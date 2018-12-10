@@ -109,10 +109,10 @@ import { EventEmitter, Output } from '@angular/core';
 
 childStr:string= '子组件字符串';
 
-@Output() childEvent=new EventEmitter();
+@Output() event=new EventEmitter();
 
 doEmit(){
-  this.childEvent.emit(this.childStr);
+  this.event.emit(this.childStr);
 }
 ```
 
@@ -126,6 +126,8 @@ child.component.html
 parent.component.html
 
 ```HTML
+<!-- event对应的是子组件中 new EventEmitter() -->
+<!-- childEvent($event)对应的是父组件中的事件 -->
 <app-child (event)="childEvent($event)"></app-child>
 ```
 
