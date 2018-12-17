@@ -15,7 +15,7 @@ tags: [Angular,Angular路由]
 一般来说，存放路由配置信息的文件的生成方式有两种，一是手动生成，一是通过命令自动生成。
 > **手动生成**
 
-在 `Angular` 项目的app文件夹目录下，手动新建一个文件，名为 `app-routing.module.ts`，将路由配置信息放到该文件中。
+在 `Angular` 项目的app文件夹目录下，手动新建一个文件，名为 `app-routing.module.ts`，将路由配置信息放到该文件中。需要开发者在跟模块 `AppModule` 里面引用路由配置信息模块。
 
 > **自动生成**
 
@@ -25,24 +25,11 @@ tags: [Angular,Angular路由]
 ng new 项目名 --routing
 ```
 
-使用该命令创建项目，会在项目的项目文件夹 `app` 下面生成 `app-routing.moudle.ts` 文件，其内容如下所示。
-app-routing.module.ts
+使用该命令创建项目，会在项目文件夹 `app` 下面生成 `app-routing.module.ts` 文件。
 
-```typescript
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+由于是使用命令生成的路由配置信息文件，`app-routing.module.ts` 文件中的 `AppRoutingModule` 模块自动被 `AppModule` 根模块 `import` 了，不需要开发者在 `AppModule` 根模块里面去手动引用路由模块；`app.component.html` 页面中 `router-outlet` 占位符也会自动生成。 
 
-const routes: Routes = []; //存放路由配置信息
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
-```
-由于是使用命令行生成的路由配置信息文件，`app-routing.module.ts` 文件中的 `AppRoutingMdule` 模块自动被 `AppModule` 根模块 `import` 了，不需要开发者在 `AppModule` 根模块里面去手动引用路由模块；`app.component.html` 页面中 `router-outlet` 占位符也会自动生成。 
-
-开发者在使用 `懒加载` 时，需要新建一个模块，新建的模块里面也存在路由，开发者也可以使用命令创建模块里面的路由信息配置文件，其命令如下所示：
+开发者在使用 `懒加载` 时，需要新建一个模块，新建的模块里面也存在路由，开发者也可以使用命令在创建模块时自动生成路由信息配置文件，其命令如下所示：
 
 ```
 ng g m 模块名 --routing  //最简写法
@@ -59,11 +46,11 @@ ng g m 模块名 --routing  //最简写法
 
 > **routerLinkActive：** 当前路由被激活时的样式，存在于组件UI中，其用法：`<a routerLinkActive='active' routerKink="['xxx']">xxxx</a>`，即当前路由激活时，给当前 `a标签` 增加 `active` 样式类
 
-> **Router：** 负责在运行时执行的路由对象，可以通过其 `navigate()`  方法和 `navigateByUrl()` 方法进行路由跳转，`Router` 是一个类，在 `ts` 文件中使用时，需要在 `ts` 文件中引用并实例化，其用法：`Router.navigate(['/xxx'])`
+> **Router：** 负责在运行时执行的路由对象，可以通过其 `navigate()`  方法和 `navigateByUrl()` 方法进行路由跳转，`Router` 是一个类，在使用时，需要实例化，其用法：`Router.navigate(['/xxx'])`
 
-> **ActivedRoute：** 代表当前激活的路由对象，保存当前路由的 `URL` 以及路由参数，这是一个类，在 `ts` 中使用时，需要在 `ts` 文件中引用并实例化，其用法：`1，参数订阅 ActivedRoute.params.subscribe((data)=>{})`，`2，参数快照 ActivedRoute..snapshot.queryParams["id"]`
+> **ActivedRoute：** 代表当前激活的路由对象，保存当前路由的 `URL` 以及路由参数，这是一个类，在使用时，需要实例化，其用法：`1，参数订阅 ActivedRoute.params.subscribe((data)=>{})`，`2，参数快照 ActivedRoute..snapshot.queryParams["id"]`
 
-> **useHash：** 其路由使用哈希展现，即多了一个 `#` 号，存在于根模块 `app.component.ts` 中，其用法：`imports: [RouterModule.forRoot(routes,{useHash:true})]`
+> **useHash：** 其路由使用哈希展现，即多了一个 `#` 号，存在于根配置信息文件 `app-routing.module.ts` 中，其用法：`RouterModule.forRoot(routes,{useHash:true})`
 
 > **redirectTo：** 路由重定向，一般存在于根路由配置文件 `app-routing.module.ts` 中，其用法：`{path:'',redirectTo:'/home',pathMatch:'full'}`，即当前路由为空时，转到路由为 `home` 的页面
 
@@ -72,7 +59,7 @@ ng g m 模块名 --routing  //最简写法
 ### 示例
 1，在 `cmd` 环境中，使用命令 `ng new learn-route --rouing` 创建 `learn-route` 项目
 
-2，创建成功后，在 `cmd` 环境中，`cd learn-route` 命令进入 `learn-route`，使用命令 `ng g c home` 创建 `home` 组件，使用命令 `ng g c joke` 创建 `joke` 组件
+2，`cd learn-route` 进入 `learn-route` 目录下，使用命令 `ng g c home` 创建 `home` 组件，使用命令 `ng g c joke` 创建 `joke` 组件
 
 其 `learn-route` 项目部分代码如下所示。
 
@@ -90,11 +77,11 @@ import { JokeComponent } from './joke/joke.component';
     HomeComponent,
     JokeComponent
   ],
- ..../代码块
+..../代码块
 ```
 
 app-routing.mdule.ts
-````typescript
+```typescript
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -108,7 +95,7 @@ export class AppRoutingModule { }
 ```
 app.component.html
 ```HTML
-....//代码块
+<!-- 代码块 -->
 <router-outlet></router-outlet>
 ```
 
@@ -129,27 +116,14 @@ const routes: Routes = [
 
 app.component.html
 ```HTML
-<!--The content below is only a placeholder and can be replaced.-->
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-        <div class="container-fluid">
-            <div>
-                <ul class="nav navbar-nav">
-                 <!-- routerLink的两种写法 -->  
-                    <li routerLinkActive="active">
-                     <a routerLink='/home'>Home</a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a [routerLink]="['/joke']">Joke</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
-<div class="container">
-    <router-outlet></router-outlet>
-</div>
+<!-- 代码块 -->
+ul class="nav navbar-nav">
+  <!-- routerLink的两种写法 -->  
+  <li routerLinkActive="active"><a routerLink='/home'>Home</a></li>
+  <li routerLinkActive="active"><a [routerLink]="['/joke']">Joke</a></li>
+</ul>
+<!-- 代码块 -->
+<div class="container"><router-outlet></router-outlet></div>
 ```
 
 页面效果图如下所示
@@ -160,22 +134,20 @@ app.component.html
 
 ## 懒加载
 ###  优势
-> **模块化管理：** 在实际的 `Angular` 项目中，可能存在几十上百的组件，每一根组件会在组件所属的模块里面声明，若项目所有的组件都在根模块 `app.moudle.ts` 里面声明，那会导致根模块代码庞大，并且不易管理，使用 `懒加载` 时，将相关的组件放到一个模块，组件在该模块声明，不用在根模块里面声明
+> **模块化管理：** 在实际的 `Angular` 项目中，可能存在几十上百的组件，每一个组件都会在组件所属的模块里面声明，若项目所有的组件都在根模块 `app.moudle.ts` 里面声明，那会导致根模块代码庞大，并且不易管理，使用 `懒加载` 时，将相关的组件放到同一个模块，组件在该模块声明，开发者需要修改这个模块的代码时，直接在项目中找这个模块即可。
 
 
 > **用户体验：** `Angular` 开发的项目是单页面应用，在实际的 `Angular` 项目中，由于 `Angular` 项目过于庞大，如果不采用 `懒加载` 模式，用户进入到项目的页面时，浏览器会请求整个项目的文件，这会导致项目的页面打开速度过慢
 
 ### 示例
-1， 接着上面代码，在 `cmd` 环境下使用命令 `ng g m poduct --routing` 生成需要懒加载的模块，该命令还在自动生成懒加载模块的子路由配置信息文件 `product-routing.module.ts`
+1，在 `cmd` 环境下使用命令 `ng g m poduct --routing` 生成需要懒加载的 `product` 模块，该命令还会自动生成懒加载模块的路由配置信息文件 `product-routing.module.ts`
 
 2，使用命令 `ng g c product/list` 在 `product` 模块下生成 `lsit组件`
 
-现在项目部分代码如下所示。
+项目部分代码如下所示。
 product.module.ts
 ```typescript
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+....//代码块
 import { ProductRoutingModule } from './product-routing.module';
 import { ListComponent } from './list/list.component';
 
@@ -184,9 +156,7 @@ import { ListComponent } from './list/list.component';
     CommonModule,
     ProductRoutingModule
   ],
-  declarations: [ListComponent]
-})
-export class ProductModule { }
+....//代码块
 ```
 
 product-routing.module.ts
@@ -198,31 +168,21 @@ const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class ProductRoutingModule { }
+....//代码块
 ```
 
 3，修改代码如下所示
 app.component.html
 ```HTML
- <!-- 代码块 -->
-    <ul class="nav navbar-nav">
-        <li routerLinkActive="active">
-            <a routerLink='/home'>Home</a>
-        </li>
-        <li routerLinkActive="active">
-            <a [routerLink]="['/joke']">Joke</a>
-       </li>
-       <li routerLinkActive="active">
-           <!-- 新增链接 -->
-            <a [routerLink]="['/prodcut']">Product</a>
-        </li>
-    </ul>
 <!-- 代码块 -->
-<div class="container">
-    <router-outlet></router-outlet>
-</div>
+<ul class="nav navbar-nav">
+  <li routerLinkActive="active"><a routerLink='/home'>Home</a></li>
+  <li routerLinkActive="active"><a [routerLink]="['/joke']">Joke</a></li>
+  <!-- 新增链接 -->
+  <li routerLinkActive="active"><a [routerLink]="['/prodcut']">Product</a></li>
+</ul>
+<!-- 代码块 -->
+<div class="container"><router-outlet></router-outlet></div>
 ```
 
 app-routing.module.ts
@@ -240,8 +200,7 @@ const routes: Routes = [
 
 product-routing.module.ts
 ```typescript
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+....//代码块
 import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
@@ -250,18 +209,16 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class ProductRoutingModule { }
+....//代码块
 ```
 
 其页面效果图如下所示
 
-![home页面请求的文件](https://bingolil.github.io/images/angular-lazy-home.png)
+![home路由请求的文件](https://bingolil.github.io/images/angular-lazy-home.png)
 
-![product模块中请求的文件](https://bingolil.github.io/images/angular-lazy-product.png)
+![product路由请求的文件](https://bingolil.github.io/images/angular-lazy-product.png)
 
-4，对比上面两张图片，在 `home` 路由中请求文件和 `product` 路由中请求的文件有一定的区别，在 `product` 路由中多请求了 `product-product-module.js` 文件。即用户进入项目页面时，不会请求项目所有的文件，这提高了项目的用户体验，同时还可以将和 `product` 模块相关的组件或服务放到项目文件中的 `product` 文件夹下，进行模块化管理。
+4，对照上面两张图片，在 `home` 路由中请求文件和 `product` 路由中请求的文件有一定的区别，在 `product` 路由中多请求了 `product-product-module.js` 文件。即用户进入项目页面时，不会请求项目所有的文件，这提高了项目的用户体验，同时还可以将和 `product` 模块相关的组件或服务放到项目文件中的 `product` 文件夹下，进行模块化管理。
 
 > **注意：** 若初始化路由重定向路由到 `product` 下，那么 `product-product-module.js` 文件一开始就会被加载，因为 `product` 路由对应的文件中存在 `product-product-module.js` 文件
 
@@ -277,26 +234,16 @@ export class ProductRoutingModule { }
 3，修改代码如下所示。
 app.component.html
 ```HTML
- <!-- 代码块 -->
-    <ul class="nav navbar-nav">
-        <li routerLinkActive="active">
-            <a routerLink='/home'>Home</a>
-        </li>
-        <li routerLinkActive="active">
-            <a [routerLink]="['/joke']">Joke</a>
-       </li>
-       <li routerLinkActive="active">
-            <a [routerLink]="['/prodcut']">Product</a>
-        </li>
-         <li routerLinkActive="active">
-            <!-- 新增链接 -->
-            <a [routerLink]="['/setting']">setting</a>
-        </li>
-    </ul>
 <!-- 代码块 -->
-<div class="container">
-    <router-outlet></router-outlet>
-</div>
+<ul class="nav navbar-nav">
+  <li routerLinkActive="active"><a routerLink='/home'>Home</a></li>
+  <li routerLinkActive="active"><a [routerLink]="['/joke']">Joke</a></li>
+  <li routerLinkActive="active"><a [routerLink]="['/prodcut']">Product</a></li>
+  <!-- 新增链接 -->
+  <li routerLinkActive="active"><a [routerLink]="['/setting']">setting</a></li>
+</ul>
+<!-- 代码块 -->
+<div class="container"><router-outlet></router-outlet></div>
 ```
 
 app-routing.module.ts
@@ -313,15 +260,13 @@ const routes: Routes = [
 
 product/setting-routing.module.ts
 ```ts
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+....//代码块
 import { LayoutComponent } from './layout/layout.component';
 import { ProductComponent } from './product/product.component';
 import { JokeComponent } from './joke/joke.component';
 
 const routes: Routes = [
-  {
-  	path:'',component:LayoutComponent,
+  {path:'',component:LayoutComponent,
   	children:[ //子路由
   	  {path:'',redirectTo:'product',pathMatch:'full'},
   	  {path:'product',component:ProductComponent},
@@ -329,19 +274,12 @@ const routes: Routes = [
   	]
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class SettingRoutingModule { }
+....//代码块
 ```
 
 product/laout/layout.component.html
 ```HTML
-<div class="jumbotron">
-	<h1>共享部分</h1>
-</div>
+<div class="jumbotron"><h1>共享部分</h1></div>
 <ul class="nav nav-tabs">
   <li routerLinkActive="active"><a routerLink="product">product</a></li>
   <li routerLinkActive="active"><a [routerLink]="['joke']">joke</a></li>
@@ -355,7 +293,7 @@ product/laout/layout.component.html
 ![setting/product路由](https://bingolil.github.io/images/angular-setting-1.png)
 
 
-![setting/product路由](https://bingolil.github.io/images/angular-setting-2.png)
+![setting/joke路由](https://bingolil.github.io/images/angular-setting-2.png)
 
 其中共享部分可以做成一个组件，该组件在 `setting` 模块中声明，在 `product/laout/layout.component.html` 中引用也可以达到同样的效果。
 
@@ -363,7 +301,7 @@ product/laout/layout.component.html
 ### 意义
 在 `Agnular` 项目中，使用 `懒加载` 时有助于提高用户体验和模块化管理项目。
 
-假如现在有一个新的模块 `prod`，开发者使用懒加载模式加载这个模块，但是开发者可以预见 `prod` 模块会被用户频繁浏览（用户初始进入项目是 `home` 路由，然后大部分用户会浏览 `prod` 模块），在加载时 `prod` 模块时，浏览器会停顿一小段时间（需要加载 `prod` 模块对应的文件），这会对降低用户体验，而预加载就是解决浏览器停顿一小段时间的方法。
+假如现在有一个新的模块 `prod`，开发者使用懒加载模式加载这个模块。但是开发者可以预见 `prod` 模块会被用户频繁浏览（用户初始进入项目是 `home` 路由，然后大部分用户会浏览 `prod` 模块），在加载时 `prod` 模块时，浏览器会停顿一小段时间（需要加载 `prod` 模块对应的文件），这会对降低用户体验，而预加载就是解决浏览器停顿这一小段时间的方法。
 
 ### 代码准备
 
@@ -372,7 +310,6 @@ product/laout/layout.component.html
 app-routing.module.ts
 ```typescript
 ....//代码块
-
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
@@ -382,40 +319,27 @@ const routes: Routes = [
   //新增路由
   {path:'prod',loadChildren:'./prod/prod.module#ProdModule'}
 ];
-
 ....//代码块
 ```
 
 app.component.html
 ```HTML
- <!-- 代码块 -->
-    <ul class="nav navbar-nav">
-        <li routerLinkActive="active">
-            <a routerLink='/home'>Home</a>
-        </li>
-        <li routerLinkActive="active">
-            <a [routerLink]="['/joke']">Joke</a>
-       </li>
-       <li routerLinkActive="active">
-            <a [routerLink]="['/prodcut']">Product</a>
-        </li>
-        <li routerLinkActive="active">
-            <a [routerLink]="['/setting']">setting</a>
-        </li>
-        <li routerLinkActive="active">
-            <!-- 新增链接 -->
-            <a [routerLink]="['/prod']">prod</a>
-        </li>
-    </ul>
 <!-- 代码块 -->
-<div class="container">
-    <router-outlet></router-outlet>
-</div>
+<ul class="nav navbar-nav">
+  <li routerLinkActive="active"><a routerLink='/home'>Home</a></li>
+  <li routerLinkActive="active"><a [routerLink]="['/joke']">Joke</a></li>
+  <li routerLinkActive="active"><a [routerLink]="['/prodcut']">Product</a></li>
+  <li routerLinkActive="active"><a [routerLink]="['/setting']">setting</a></li>
+  <!-- 新增链接 -->
+  <li routerLinkActive="active"><a [routerLink]="['/prod']">prod</a></li>
+</ul>
+<!-- 代码块 -->
+<div class="container"><router-outlet></router-outlet></div>
 ```
 
 prod-routing.module.ts
 ```typescript
-....//代码 块
+....//代码块
 import { LayoutComponent } from './layout/layout.component';
 const routes: Routes = [
   {path:'',component:LayoutComponent}
@@ -429,7 +353,6 @@ app-routing.module.ts
 ```typescript
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 ....//代码块
-
 @NgModule({
   imports: [RouterModule.forRoot(routes,{ preloadingStrategy:  PreloadAllModules })],
   exports: [RouterModule]
@@ -471,15 +394,11 @@ export class OwnProdService implements PreloadingStrategy{
 }
 ```
 
-在路由中使用上面新建的服务，`app-routing.module.ts` 代码如下所示。
+在根路由中使用上面新建的服务，`app-routing.module.ts` 代码如下所示。
 
 ```typescript
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-
+....//代码块
 import { OwnProdService } from './own-prod.service'
-import { HomeComponent } from './home/home.component';
-import { JokeComponent } from './joke/joke.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -491,14 +410,12 @@ const routes: Routes = [
   {path:'prod',loadChildren:'./prod/prod.module#ProdModule',data:{preload:true}}
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes,{ preloadingStrategy:  OwnProdService })],//使用服务
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+@NgModule({                                                    //使用服务
+  imports: [RouterModule.forRoot(routes,{ preloadingStrategy:  OwnProdService })],
+....//代码块
 ```
 
-使用了预加载后，在浏览器中效果图如下所示。
+使用自定义预加载后，在浏览器中效果图如下所示。
 ![](https://bingolil.github.io/images/angular-route-prod.png)
 
 
