@@ -69,7 +69,7 @@ export class RouteGuardService implements CanActivate {
   constructor() { }
 
   canActivate():boolean{
-  	return false;//不可进入   若为return true 可以进入
+    return false;//不可进入   若为return true 可以进入
   }
 }
 ```
@@ -88,8 +88,8 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'console',
-  	loadChildren:'./console/console.module#ConsoleModule',
-  	canActivate:[RouteGuardService] //使用路由守卫的地方
+    loadChildren:'./console/console.module#ConsoleModule',
+    canActivate:[RouteGuardService] //使用路由守卫的地方
   }
 ];
 ....//代码块
@@ -249,9 +249,9 @@ export class DetailComponent implements OnInit {
 product/detail/detail.component.html
 ```HTML
 <ul class="breadcrumb">
-    <li><a routerLink="/home">Home</a></li>
-    <li><a routerLink="/product">product</a></li>
-    <li class="active">detail</li>
+  <li><a routerLink="/home">Home</a></li>
+  <li><a routerLink="/product">product</a></li>
+  <li class="active">detail</li>
 </ul>
 <p>当前产品id为：{{productId}}</p>
 ```
@@ -269,7 +269,7 @@ product/detail/detail.component.html
 
 
 ### 正常传参
-> 如果在 `url` 中传递的参数不止一个，是多个话，参数是 `Url` 路径的一部分显然不是一个很好的方式，这时应该传递参数应该使用正常的模式，即参数在 `Url` 的路径后面，以 `?` 号隔开
+> 如果在 `url` 中传递的参数不止一个，是多个的话，参数是 `Url` 路径的一部分显然不是一个很好的方式，这时应该传递参数应该使用正常的模式，即参数在 `Url` 的路径后面，以 `?` 号隔开
 
 1，使用命令 `ng g m joke --routing`，`ng g c joke/list` `ng g c joke/detail` 创建 `joke` 模块，`joke/list` 组件，`joke/detail` 组件，修改已有代码如下所示。
 app-routing.module.st
@@ -354,8 +354,8 @@ import { Router } from '@angular/router'
 ....//代码块
 constructor(private router:Router) { }
   goJokeDetail(){
-  	let tsParmas={id:9,desc:'n星'}
-  	this.router.navigate(['/joke/detail'],{queryParams:tsParmas})
+    let tsParmas={id:9,desc:'n星'}
+    this.router.navigate(['/joke/detail'],{queryParams:tsParmas})
   }
 ....//代码块
 ```
@@ -426,15 +426,15 @@ export class DetailComponent implements OnInit {
   secJoke={id:null,desc:null}
   
   ngOnInit() {
-  	// this.routeInfo.queryParams.subscribe((data:Params)=>{
-  	// 	this.nowJoke=Object.assign({},data);
-  	// })
+    // this.routeInfo.queryParams.subscribe((data:Params)=>{
+    // 	this.nowJoke=Object.assign({},data);
+    // })
 
-  	//this.routeInfo.queryParamMap.subscribe((data:any)=>{
-  	//	this.nowJoke=Object.assign({},data.params);
-  	//})
-  	
-  	this.secJoke.id=this.routeInfo.snapshot.queryParamMap.get('id')
+    //this.routeInfo.queryParamMap.subscribe((data:any)=>{
+    //  this.nowJoke=Object.assign({},data.params);
+    //})
+  
+    this.secJoke.id=this.routeInfo.snapshot.queryParamMap.get('id')
     this.secJoke.desc=this.routeInfo.snapshot.queryParamMap.get('desc')
   }
  }

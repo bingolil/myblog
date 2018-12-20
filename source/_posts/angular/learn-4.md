@@ -267,11 +267,11 @@ import { JokeComponent } from './joke/joke.component';
 
 const routes: Routes = [
   {path:'',component:LayoutComponent,
-  	children:[ //子路由
-  	  {path:'',redirectTo:'product',pathMatch:'full'},
-  	  {path:'product',component:ProductComponent},
-  	  {path:'joke',component:JokeComponent}
-  	]
+    children:[ //子路由
+      {path:'',redirectTo:'product',pathMatch:'full'},
+      {path:'product',component:ProductComponent},
+      {path:'joke',component:JokeComponent}
+    ]
   }
 ];
 ....//代码块
@@ -384,13 +384,13 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class OwnProdService implements PreloadingStrategy{
-    preload(route: Route, load: () => Observable<any>): Observable<any> {
-        if (route.data && route.data['preload']) {
-            return load();
-        } else {
-            return of(null);
-        }
+  preload(route: Route, load: () => Observable<any>): Observable<any> {
+    if (route.data && route.data['preload']) {
+      return load();
+    } else {
+      return of(null);
     }
+  }
 }
 ```
 
