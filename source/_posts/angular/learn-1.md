@@ -98,7 +98,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 ### src/polyfill.ts
 
 这个文件叫做腻子脚本，`Angular` 是默认对 `ie浏览器` 是不支持的，即新建项目后，在 `ie浏览器` 的本地4200端口页面是一片空白，将以下的注释取消，在ie浏览器中可以看到页面。
-**将项目的默认注释取消后，其对ie浏览器的支持也不是特别好，[Angualr官网](https://angular.io/)在ie11中有的页面页打不开**
+**将项目的默认注释取消后，其对i e浏览器 的支持也不是特别好，[Angualr官网](https://angular.io/)在ie11中有的页面页打不开**
 ![](https://bingolil.github.io/images/polyfill.png)
 
 ### src/index.html
@@ -139,7 +139,7 @@ import { AppComponent } from './app.component';
 export class AppModule { }
 ```
 在 `src/main.ts` 中引入的启动模块就这个模块，所以这个模块也叫做项目的根模块，在这个模块中，默认定义了一个根组件，即 `AppComponent`，这个组件定义的选择器是  `app-root`，这个选择器在 `src/index.html` 中被使用，即这个组件也叫做根组件。
-**以上文件为angular项目的主要的重要文件**
+**以上文件为 Angular 项目的主要的重要文件**
 ## Angular6命令大全
 `Angular` 为开发者者提供了诸多帮助，在 `cmd` 环境下，使用以下命令
 ```
@@ -149,11 +149,11 @@ ng --help
 ![](https://bingolil.github.io/images/ng-help.png)
 ### ng add
 `ng add` 是 `Angular6` 中新出现的命令，该命令使得向项目中添加新功能更加的方便。
-例如，在项目根目录下运行如下命令添加**ng-zorro**
+例如，在项目根目录下运行如下命令添加 **`ng-zorro`**
 ```
 ng add ng-zorro-antd
 ```
-命令运行完成后，使用ng serve运行项目，浏览器打开本地4200端口，出现下图。
+命令运行完成后，使用 `ng serve` 运行项目，浏览器打开本地4200端口，出现下图。
 
 ![](https://bingolil.github.io/images/ng-zorro-ant.png)
 这代表在这个项目中可以使用[ng-zorro官网](https://ng.ant.design/docs/introduce/zh)的组件

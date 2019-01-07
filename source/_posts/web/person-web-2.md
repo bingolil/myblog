@@ -94,7 +94,7 @@ tags: [hexo,git,github,node.js]
 
 ![](https://bingolil.github.io/images/hexo-g-d.png)
 
-打开浏览器，在地址栏输入 'GitHub用户名.github.io' 可以看到，本地的项目已经在 `GitHub`上了。
+打开浏览器，在地址栏输入 `GitHub用户名.github.io` 可以看到，本地的项目已经在 `GitHub`上了。
 
 
 

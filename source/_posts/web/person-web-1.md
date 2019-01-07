@@ -11,7 +11,7 @@ tags: [hexo,git,github,node.js]
 需要的准备有：`node.js`，`hexo框架`，`git`，`GitHub的账号`
 ## 安装
 ### 安装node.js
-进入英文版本的[node.js官网](https://nodejs.org/en/download/)，如果打开速度太慢，可以进入中文版本的[node.js官网](http://nodejs.cn/download/)，根据个人电脑选择下载 `node.js` 的安装包。
+进入英文版本的 [node.js官网](https://nodejs.org/en/download/)，如果打开速度太慢，可以进入中文版本的 [node.js官网](http://nodejs.cn/download/)，根据个人电脑选择下载 `node.js` 的安装包。
 
 ![](https://bingolil.github.io/images/node-down.png)
 
@@ -28,11 +28,11 @@ tags: [hexo,git,github,node.js]
 
 ![](https://bingolil.github.io/images/git-down.png)
 
-下载安装包后，点击安装包进行安装，一直跟着安装程序的提示点击下去。安装完成后，在window10自带搜索处输入 `git`。出现下图。
+下载安装包后，点击安装包进行安装，一直跟着安装程序的提示点击下去。安装完成后，在 `window10` 自带搜索处输入 `git`。出现下图。
 
 ![](https://bingolil.github.io/images/git-validate.png)
 
-点击图中 Git Bash，出现下图，说明git安装成功。
+点击图中 `Git Bash`，出现下图，说明 `git` 安装成功。
 
 ![](https://bingolil.github.io/images/git-cmd.png)
 

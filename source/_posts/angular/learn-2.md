@@ -10,11 +10,11 @@ tags: [Angular,Angular组件通讯]
 ![](https://bingolil.github.io/images/com-tree.png)
 
 `Angular` 组件间的典型通讯方式有以下几种：
-> * 直接的父子关系：父组件访问子组件的public属性和方法
-> * 直接的父子关系：子组件借助于Input和Output和父组件进行通讯
-> * 没有直接关系：借助于service单例进行通讯
-> * 利用浏览器的cookie和localStorage存储进行通讯
-> * 利用session进行通讯
+> * 直接的父子关系：父组件访问子组件的 `public` 属性和方法
+> * 直接的父子关系：子组件借助于 `Input` 和 `Output` 和父组件进行通讯
+> * 没有直接关系：借助于 `service` 单例进行通讯
+> * 利用浏览器的 `cookie` 和 `localStorage` 存储进行通讯
+> * 利用 `session` 进行通讯
 
 其它前端框架的组件间通讯方式也和上面几种方式差不多，比如 `vue` 和 `react` 
 ## 直接调用
@@ -102,6 +102,7 @@ ngOnInit(){
 可以在浏览器的控制台中看到输出 `父组件变量`
 ### @Output
 `@Output` 的本质是事件机制，我们用它来监听子组件中的事件，即子组件发生了某个事件，通知父组件，代码如下所示
+
 child.component.ts
 ```ts
 import { EventEmitter, Output } from '@angular/core';
@@ -136,7 +137,6 @@ parent.component.ts
 
 ```ts
 .... //代码块
-
 childEvent(event){
   console.log(event);
 }
@@ -156,6 +156,7 @@ childEvent(event){
 ### 依赖注入（Angular5）
 由于依赖注入存在于 `Angular6` 版本以前，而且 `Angular7` 版本也出来不久，一般开发项目都是采用最新技术，所以关于 `依赖注入` 可以了解一下，看其使用机制。代码如下所示
 定义一个服务 `CommunicateService`
+
 communicate.service.ts
 ```ts
 import { Injectable } from '@angular/core';
@@ -177,11 +178,9 @@ export class CommunicateService {
 app.module.ts
 ```ts
 import { CommunicateService } from './communicate.service';
-
 .... //代码块
 
 providers: [CommunicateService],
-
 .... //代码块
 ```
 

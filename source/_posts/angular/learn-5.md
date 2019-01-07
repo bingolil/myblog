@@ -378,11 +378,11 @@ constructor(private router:Router) { }
 
 ![](https://bingolil.github.io/images/angular-h-route-err1.png)
 
-> 组件 `UI` 中没有使用 `queryParams` 传参
+> 组件 `UI` 中没有使用 `queryParams` 传参，采用 `Params` 传参
 
-在 `Angular7` 版本中，传递参数时，只有 `queryParams` 属性才可以传递。
+在 `Angular7` 版本中，正常传递参数时（参数不是 `Url` 路径的一部分），只有 `queryParams` 属性才可以传递。
 
-使用其它属性（如 `Params`）传递时，其代码以及错误如下所示。
+使用其它属性（如 `Params`）传递时，程序会报错，因为 `Params` 不是 `a` 链接的属性，其代码以及错误如下所示。
 
 ```HTML
 <!-- 代码块 -->
