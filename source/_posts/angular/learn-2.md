@@ -1,5 +1,6 @@
 ﻿title: Angular教程-2-组件通讯
 categories: Angular
+date: 2018-11-09
 tags: [Angular,Angular组件通讯]
 ---
 ## 摘要

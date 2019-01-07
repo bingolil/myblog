@@ -1,5 +1,6 @@
 ﻿title: 个人网页搭建流程-2
 categories: 个人网页
+date: 2018-10-20
 tags: [hexo,git,github,node.js]
 ---
 ## 搭建本地项目

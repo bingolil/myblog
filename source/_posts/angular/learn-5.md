@@ -1,9 +1,7 @@
 ﻿title: Angular教程-5-路由2
-
 categories: Angular
-
+date: 2018-12-19
 tags: [Angular,Angular路由]
-
 ---
 ## 路由守卫
 ### 意义

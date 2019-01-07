@@ -1,9 +1,7 @@
 ﻿title: Angular教程-3-生命周期钩子
-
 categories: Angular
-
+date: 2018-11-23
 tags: [Angular,Angular生命周期钩子]
-
 ---
 在`Angular` 中，每个组件都有一个被 `Angular` 管理的生命周期。
 

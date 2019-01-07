@@ -1,9 +1,7 @@
 ﻿title: Angular教程-4-路由1
-
 categories: Angular
-
+date: 2018-12-10
 tags: [Angular,Angular路由]
-
 ---
 `路由` 在 `Angular` 中是一个非常重要的模块，一个好的路由对项目的开发有着巨大的促进作用。
 
