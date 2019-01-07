@@ -263,7 +263,7 @@ product/detail/detail.component.html
 
 ![点击product页面中 第三个产品 按钮](https://bingolil.github.io/images/angular-h-route-detail3.png)
 
-> 当参数是 `Url` 路径一部分时，使用该参数路由有两种方法。1，在页面中使用，如 `product/list/list.component.html`，暂时列举出3种格式（文中已列举）；2，在组件中使用，如 `product/list/list.component.ts`，有3中格式（文中已列举）。接收该参数的方式暂时列举出4种格式（已在 `product/detail/detail.component.ts` 中列举出来），推荐使用其中存在 `Map` 字符的方法，因为在 `Angular` 以后的版本中关于路由参数会淘汰掉不存在 `Map` 字符的方法属性。
+> 当参数是 `Url` 路径一部分时，使用该参数路由有两种方法。1，在页面中使用，如 `product/list/list.component.html`，暂时列举出3种格式（文中已列举）；2，在组件中使用，如 `product/list/list.component.ts`，有3种格式（文中已列举）。接收该参数的方式暂时列举出4种格式（已在 `product/detail/detail.component.ts` 中列举出来），推荐使用其中存在 `Map` 字符的方法，因为在 `Angular` 以后的版本中关于路由参数会淘汰掉不存在 `Map` 字符的方法属性。
 
 
 ### 正常传参
@@ -478,7 +478,7 @@ this.productId=this.routerInfo.snapshot.paramMap.get("productId");
 
 ![参数快照](https://bingolil.github.io/images/angular-h-route-snapshot.png)
 
-从上面的代码以及两张图对比中，在参数订阅时，点击 `进入第二个产品` 链接，页面中 `productId` 数据发生了改变，而在参数快照时，`Url` 地址发生改变，但页面中的 `productId` 并没有发生改变。
+从上面的代码以及两张图对比中，可以发现，在参数订阅时，点击 `进入第二个产品` 链接，页面中的 `productId` 数据发生了改变，而在参数快照时，`Url` 地址发生改变，但页面中的 `productId` 并没有发生改变。
 
 > **原因**：这种情况主要发生在同一个组件的跳转。从 `product/1` 跳转到 `porduct/2` 时，都是在 `product/detail` 组件中跳转。当使用参数订阅，路由跳转时，根据订阅者模式，组件会再次获取路由参数；在使用参数快照时，由于在 `product/1` 路由下，`product/detail` 组件已经被创建了，当跳转到 `product/2` 时，组件不会重新执行 `ngOnInit()` 方法，所以不会重新获取参数。
 

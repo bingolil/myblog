@@ -366,7 +366,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 在 `app-routing.module.ts` 文件中，加载模块的模式是 `懒加载` 模式，但是由于使用了 `预加载`，从上图中可以看到在 `home` 路由时，项目加载了对应 `prod` 路由下的 `prod-prod-module.js` 文件，说明 `Angular` 自带的预加载策略使用成功。
 
-在上图中，可以看到由于使用了预加载，加载了所有的懒加载模块，这是 `Angular` 自带加载策略的一个缺陷。
+但在上图中，可以看到由于使用了预加载，加载了所有的懒加载模块，这是 `Angular` 自带加载策略的一个缺陷。
 
 对于 `Angular` 预加载，开发者可以定义符合开发者需求的预加载策略，即自定义预加载
 
