@@ -1,4 +1,4 @@
-﻿title: Angular教程-3-生命周期钩子
+﻿title: Angular学习-3-生命周期钩子
 categories: Angular
 date: 2018-11-23
 tags: [Angular,Angular生命周期钩子]

@@ -1,4 +1,4 @@
-﻿title: Angular教程-4-路由1
+﻿title: Angular学习-4-路由1
 categories: Angular
 date: 2018-12-10
 tags: [Angular,Angular路由]
