@@ -1,4 +1,4 @@
-﻿title:  Angular学习-2-表单1
+﻿title:  Angular学习-6-表单1
 categories: Angular
 date: 2019-01-07
 tags: [Angular,Angular表单]
