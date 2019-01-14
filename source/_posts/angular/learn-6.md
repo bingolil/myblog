@@ -98,7 +98,7 @@ Html
   名称：<input type="text" name="name" formControlName="name"><br>
   年龄：<input type="number" name="age" formControlName="age">
   <div formGroupName="address" class="mt-2">
-    <div class="d-flex">
+    <div>
       省：<input type="text" name="province" formControlName="province">
       市：<input type="text" name="city" formControlName="city">
       县：<input type="text" name="county" formControlName="county">
@@ -138,7 +138,7 @@ constructor(private fb:FormBuilder) { }
 ### FormArray 管理动态表单
 `FormArry` 是 `FormGroup` 的另一种选择，当开发者事先不知道子控件的具体数量是多少， `FormArray` 是一种很好的选择，它可以帮助开发者很好的管理匿名控件。
 
-应用场景：当表单中存在组件变化时，如在 `Charter` (人物)表单中，添加人物的 `enable` （能力）属性，但是人物的 `enable` 属性不可能只有一个，可能存在多个，比如驾驶，观察，组织等，不确定有多少。 `FormArray` 就是应用于这种场景。其代码如下所示
+应用场景：当表单中存在组件变化时，如在 `Charter` (人物)表单中，添加人物的 `enable` （能力）属性，但是人物的 `enable` 能力不可能只有一个，存在多个，比如驾驶，观察，组织等，不确定有多少。而  `FormArray` 就是应用于这种场景，其代码如下所示
 
 Ts
 ```typescript
@@ -153,7 +153,7 @@ Charter=this.fb.group({
     city:[''],
     county:['']
   }),
-  // enable:this.fb.array([this.fb.control('')])
+  // enable:this.fb.array([this.fb.control('')])  //加入初始值
   enable:this.fb.array([])
 })
 
@@ -190,7 +190,7 @@ Html
     <div *ngFor="let en of enable.controls;let i=index">
       <p class="d-flex">
         <input type="text" [formControlName]="i">
-        <button type="button" (click)="reduceEnable()">移除</button>
+        <button type="button" (click)="reduceEnable(i)">移除</button>
       </p>
     </div>
     <button type="button" (click)="addNewEnable()">添加新能力</button>
@@ -199,6 +199,10 @@ Html
   <button [disabled]="!Charter.valid" type="submit">提交表单</button>
 </form>
 ```
+
+其在浏览器页面中的效果（`Html` 代码中已移除样式类）如下所示
+
+![FormArray管理动态表单](https://bingolil.github.io/images/angular-formarray.png)
 
 >  **注意**：在 `Html` 中，关于响应式表单的指令一律小写开头，如 `formGroup`，`formControlName`等，不能写成 `FormGroup`，`FormControlName`等，若大写开头会报错或绑定不成功
 
@@ -302,8 +306,8 @@ forbidden.directive.ts
 ```typescript
 export function forbiddenValitors(nameRe:RegExp):ValidatorFn{
   return (control:AbstractControl):{[key:string]:any} | null =>{
-	 const forbidden=nameRe.test(control.value);
-	 return forbidden?{'forbiddenName':{value:control.value}}:null;
+    const forbidden=nameRe.test(control.value);
+    return forbidden?{'forbiddenName':{value:control.value}}:null;
   }
 }
 ```
@@ -337,7 +341,7 @@ Ts
 
 Charter=this.fb.group({ //加入自定义验证器
   name:['',[Validators.required,Validators.minLength(4),forbiddenValitor(/jack/i)]],
-....//代码块
+  ....//代码块
 
 get name(){ //必须，页面中需要 name
   return this.Charter.get('name')
