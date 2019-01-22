@@ -191,7 +191,7 @@ export class ZdyValidator implements Validator{
     if(value.startsWith(this.appZdy)){
       return {mobile:{
         msg:`手机号不能为${this.appZdy}开头`,
-      actualValue:value}
+        actualValue:value}
       }
     }
     return null;
@@ -236,14 +236,13 @@ Html
 
 在异步验证用户名时，在 `input` 框中，可以将 `updateOn` 的值从 `change` 改为 `blur` 来推迟异步验证的时机，即当控件失去焦点时才进行异步验证。其代码如下所示
 
-> 模板驱动表单
-
+**模板驱动表单**
 Html
 ```HTML
 <input type="text" name="name" [(ngModel)]="charter.name" ngModelOptions="{updateOn:'blur'}">
 ```
 
-> 响应式表单
+**响应式表单**
 
 Ts
 ```typescript

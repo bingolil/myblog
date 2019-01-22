@@ -53,7 +53,7 @@ const routes: Routes = [
 
 ![console 路由](https://bingolil.github.io/images/angular-h-console.png)
 
-5，假如在实际项目中，`console` 模块为控制台台模块，系统的使用者是游客时无法进入 `console` 模块，只有游客注册登录后才能进入 `console` 模块。当系统使用者点击页面导航栏中 `console 链接` 时，系统需要判断当前系统的使用者是否有权限进入 `console` 模块，若有权限则进入，没权限进入 `login` 路由，这是路由守卫需要做的事情。使用 `ng g s route-guard` 创建守卫服务。修改 `route-guard.service.ts` 文件如下所示。
+5，假如在实际项目中，`console` 模块为控制台台模块，系统的使用者是游客时无法进入 `console` 模块，只有游客注册登录后才能进入 `console` 模块。当系统使用者点击页面导航栏中 `console 链接` 时，系统需要判断当前系统的使用者是否有权限进入 `console` 模块，若有权限则进入，没权限进入 `login` 路由，这是路由守卫需要做的事情。使用 `ng g s route-guard` 创建守卫服务。修改 `route-guard.service.ts` 代码如下所示
 
 route-guard.service.ts
 ```typescript
