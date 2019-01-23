@@ -118,6 +118,8 @@ Ts
 import { FormBuilder } from '@angular/forms';
 ....//代码块
 
+constructor(private fb:FormBuilder) { }
+
 Charter=this.fb.group({
   name:[''],
   age:[null],
@@ -144,6 +146,8 @@ Ts
 ```typescript
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 ....//代码块
+
+constructor(private fb:FormBuilder) { }
 
 Charter=this.fb.group({
   name:[''],
@@ -238,6 +242,9 @@ Ts
 ```typescript
 import { FormBuilder, Validators } from '@angular/forms';
 ....//代码块
+
+constructor(private fb:FormBuilder) { }
+
 Charter=this.fb.group({
   name:['',Validators.required], //使用验证
   age:[null],
