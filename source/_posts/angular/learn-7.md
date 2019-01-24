@@ -217,7 +217,7 @@ Html
 <!--代码块-->
 <span>手机：</span>
 <input type="text" required appZdy="133" name="phone" [(ngModel)]="charter.phone" #phone="ngModel">
-<div *ngIf="phone.errors && (phone.dirty || phone.touched)">
+<div *ngIf="phone.invalid && (phone.dirty || phone.touched)">
   <p>手机号必填</p>
   <p *ngIf="phone.errors.mobile">{{phone.errors.mobile.msg}}</p>
 </div>
