@@ -369,3 +369,70 @@ Html
 在 `Ts` 代码中，使用 `get name()` 将 `Charter` 中的
 
 ### 异步验证
+异步验证在表单中也是重要的一部分，其应用的场景一般需要进行远程通讯。比如用户在使用表单进行注册时，规定用户名不能和已有的用户名相同，由于前端不知道已有的用户名有哪些，这就需要将已经输入的用户名去和后台数据库里面的用户名相匹配。
+
+其异步验证代码如下所示
+
+async.service.ts（返回 Observable 对象，模拟 http 请求）
+```typescript
+import { Injectable } from '@angular/core';
+import { Observable,of } from 'rxjs';
+
+const forbArr=['jack','lucy','bing']
+
+@Injectable({providedIn: 'root'})
+
+export class AsycService {
+  _can_use(s:string):Observable<boolean>{
+    let bool=forbArr.indexOf(s)>-1;
+    return of(bool)
+  }
+}
+```
+
+asyc-name-validator.ts（定义异步验证器）
+```typescript
+import { Injectable } from '@angular/core';
+import { AsyncValidator, AbstractControl, ValidationErrors} from '@angular/forms';
+import { map, catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { AsycService } from '../asyc.service';
+
+@Injectable({ providedIn: 'root' })
+export class AsycNameValidatorFn implements AsyncValidator {
+
+  constructor(private asycService:AsycService) { }
+
+  validate(ctrl:AbstractControl):Promise<ValidationErrors | null> | Observable<ValidationErrors | null>{
+    return this.asycService._can_use(ctrl.value).pipe(
+      map(xx=>(xx?{can_use:false}:null)),
+      catchError(()=>null)
+    )
+  }
+}
+```
+
+reactive.component.ts（使用异步验证器）
+```typescript
+import { AsycNameValidatorFn } from '../asyc-name-validator';
+...//代码块
+
+Charter=this.fb.group({
+  name:['xx',
+    {asyncValidators:[ //asyncValidators 这个词写法固定
+      this.asycnameValidator.validate.bind(this.asycnameValidator)],
+      updateOn: 'blur' //blur 失去焦点时验证
+    }
+  ],
+  age:[10],
+  email:[''],
+  address:this.fb.group({
+  province:[''],
+  city:[''],
+  county:[''],
+  zip:['']
+  })
+})
+```
+
+当在页面中的 `name` `input` 框中输入 `jack`、`lucy` 或 `bing` 时，页面中表单状态为 `INVALID`
