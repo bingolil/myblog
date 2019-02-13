@@ -251,7 +251,7 @@ bb.subscribe((xx)=>{
 >**fromEvent**：处理事件
 
 具体例子如下所示
-```typescirpt
+```typescript
 import { fromEvent } from 'rxjs';
 ....//代码块
 
@@ -285,7 +285,7 @@ cc.subscribe({
 
 具体例子如下所示
 ```typescript
-import { empty } from 'rxjs';
+import { never } from 'rxjs';
 ....//代码块
 
 const dd=never();
