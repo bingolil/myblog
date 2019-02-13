@@ -229,7 +229,47 @@ Html
 > **dirty 和 touched：**在初始化页面后，开发者一般不希望将错误提示在用户还没有输入时就展示出来，这会降低用户体验，而 `dirty` 和 `touched` 可以解决该该问题。改变控件的值时，控件的 `dirty`（脏）状态发生改变，当控件失去焦点时，会改变控件的 `touched`（碰过）状态。
 
 ### 异步验证
-<!-- 邮箱单一 -->
+在模板驱动表单中，异步验证的验证器是一个自定义指令，验证用户名唯一的功能代码如下所示
+
+asyc-name.directive.ts
+```typescript
+import { Directive, forwardRef } from '@angular/core';
+import { AsyncValidator, NG_ASYNC_VALIDATORS, AbstractControl, ValidationErrors } from '@angular/forms'
+import { map, catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { AsycService } from '../asyc.service';
+
+@Directive({
+  selector: '[appAsycName]',
+  providers:[
+    {provide:NG_ASYNC_VALIDATORS,useExisting:forwardRef(()=>AsycNameValidator),
+    multi:true
+    }
+  ]
+})
+export class AsycNameValidator implements AsyncValidator {
+
+  constructor(private asycService:AsycService) { }
+
+  validate(ctrl:AbstractControl):Promise<ValidationErrors | null> | Observable<ValidationErrors | null>{
+    return this.asycService._can_use(ctrl.value).pipe(
+      map(xx=>(xx?{can_use:false}:null)),
+      catchError(()=>null)
+    )
+  }
+}
+
+```
+
+在模板驱动表单中使用该异步验证器
+
+Html
+
+```HTML
+<!--代码块-->
+姓名：<input type="text" name="name" [(ngModel)]="charter.name" [ngModelOptions]="{ updateOn: 'blur' }" appAsycName>
+<!--代码块-->
+```
 
 ## 性能影响
 在默认情况下，表单的值一旦发生改变，`Angular` 会执行所有的验证器。对于同步验证器，其对项目没有明显的影响，不过，异步验证一般都会发送 `http` 请求来对控件进行验证，每次按键时，触发验证，若按键的速度过快，程序会在短时间来发送大量的 `http` 请求，这会对项目的性能造成明显的影响，降低用户体验，应该避免这种情况出现。
