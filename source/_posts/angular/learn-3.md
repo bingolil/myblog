@@ -24,7 +24,7 @@ tags: [Angular,Angular生命周期钩子]
 一旦检测到该组件(或指令)的**输入属性**（`@Input`）发生了变化，`Angular` 组件就会调用 `ngOnChanges` 钩子 。
 **注意：**若输入属性是一个对象，对象的某个属性的值变化时，不会触发这个钩子，只有该对象引用发生变化时，才会触发这个钩子。
 ### 用处
-`ngOnChanges` 在项目中用到地方不多。其相当于实现了 `angularjs` 的 `$scope.watch()` 功能。
+`ngOnChanges` 钩子在项目中被常用到的地方是组件。其相当于实现了 `angularjs` 的 `$scope.watch()` 功能。
 ### 示例
 1，组件中有且只有1个 `@Input` 输入属性，且不为对象
 
