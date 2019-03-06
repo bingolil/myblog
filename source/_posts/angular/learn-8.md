@@ -98,124 +98,7 @@ this.oob=bb.subscribe(dd); //订阅
 this.oob.unsubscribe(); //取消订阅
 ```
 
-## Subject
-### Subject 和 Observable
-`Subject` 是一种特殊的 `Observable`（可观察对象），它既是 `Observable` 对象，又是 `Observer` 对象；它允许将值多播给多个订阅者，而普通的 `Observable` 是单播的（每个已订阅的观察者都拥有 `Observable` 的独立执行）。
-
-`Subject` 是观察者模式的实现，它继承了 `Obsevalbe`。当有观察者订阅它时，它将订阅者添加到观察者列表中，它每次接收到新值时，它会遍历观察者列表，调用其 `next` 方法，将值推送出去。`Subject` 用法如下
-```typescript
-import { Subject } from 'rxjs';
-....//代码块
-
-_oob=new Subject<any>();
-....//代码块
-
-this._oob.subscribe((xx)=>{
-  console.log('observerA订阅到的值为：'+xx);
-})
-this._oob.subscribe((xx)=>{
-  console.log('observerB订阅到的值为：'+xx);
-})
-
-this._oob.next(1);
-this._oob.next(2);
-```
-
-上述代码在浏览控制台中输出如下图所示
-![](https://bingolil.github.io/images/angular-rxjs-subject.png)
-
-### BehaviorSubject 
-有时我们希望 `Subject` 能保存当前的最新状态，而不是单纯的对象推送，即每新增加一个观察者，当前 `Subuject` 能够立即向新增加的观察者推送最新的值，而不是没有响应。具体代码如下所示
-```typescript
-import { Subject } from 'rxjs';
-....//代码块
-
-_oob=new Subject<any>();
-....//代码块
-
-this._oob.subscribe((xx)=>{
-  console.log('observerA订阅到的值为：'+xx);
-})
-
-this._oob.next(1);//发送值
-this._oob.next(2);//发送值
-
-setTimeout(()=>{
-  this._oob.subscribe((xx)=>{
-    console.log('observerB订阅到的值为：'+xx);
-  })
-},1000)
-```
-
-在浏览器控制台输出结果如下图所示
-
-![](https://bingolil.github.io/images/angular-rxjs-be1.png)
-
-从上图中，可以看到 `observerB` 没有订阅到数据，因为 `obseverB` 订阅 `_oob` 后，`_oob` 没有再调用 `next` 推送数据。很多时候我们希望 `Subject` 能保存当前的最新状态，当新增订阅者时，该订阅者可以获取当前 `Subject` 的最新状态。完成该功能，需要使用 `BehaviorSubject` 对象，其代码如下所示
-```typescript
-import { BehaviorSubject } from 'rxjs';
-....//代码块
-
-_oob=new BehaviorSubject<any>(0); //设定初始值
-....//代码块
-
-this._oob.subscribe((xx)=>{
-  console.log('observerA订阅到的值为：'+xx);
-})
-
-this._oob.next(1);//发送值
-this._oob.next(2);//发送值
-
-setTimeout(()=>{
-  this._oob.subscribe((xx)=>{
-    console.log('observerB订阅到的值为：'+xx);
-  })
-},1000)
-```
-
-浏览器控制台中输出如下图所示
-
-![](https://bingolil.github.io/images/angular-rxjs-be2.png)
-
-从上图中可以看到，`observerB` 获取到了 `_obb` 对象的最新状态，并且最开始时，`Subject` 对象推送了一个 `0`
-
-> **注意：**因为新增订阅者需要获取到当前 `Subject` 最新的状态，所以在实例化 `BehaviorSubject` 需要一个初始状态
-
-### ReplaySubject
-有时我们希望 `Subject` 新增订阅者后，能向新增的订阅者发送 `Subjcet` 的最新的几次状态，实现该功能，需要使用到 `ReplaySubject` 对象，其代码如下所示
-```typescript
-import { ReplaySubject } from 'rxjs';
-....//代码块
-
-_ss=new ReplaySubject<any>(2); //2 代表的是发送最新的几次状态
-....//代码块
-
-this._ss.subscribe((xx)=>{
-  console.log("observerX订阅到的值为："+xx)
-})
-
-this._ss.next(1);
-this._ss.next(2);
-this._ss.next(3);
-
-setTimeout(()=>{
-  this._ss.subscribe((xx)=>{
-    console.log('observerY订阅到的值为：'+xx);
-  })
-},1000)
-```
-
-浏览器控制台中的输出如下图所示
-
-![](https://bingolil.github.io/images/angular-rxjs-rey.png)
-
-从上图中，可以看到 `_ss` 向1秒后新增加的订阅者发送了两次最新的状态
-
-> **`BehaviorSubject(1)` 和 `ReplaySubject(1)` 的区别：**可能有人认为 `BehaviorSubject(1)` 等同于 `ReplaySubject(1)`，其实它们是不一样的，有很大的区别，创建 `BehaviorSubject` 对象时，其参数是对象的初始值，用于表示对象的初始状态；而 `ReplaySubject` 是事件的回放，其参数代表回放的次数
-
-## Opterator
-`Rxjs` 提供了丰富的操作符
-### 创建 Observable 对象
+### 创建Observable
 `Opterator` 提供了多种操作符来创建 `Observable` 对象，具体如下所示
 
 >**of**：处理数据，字符串或数字
@@ -339,7 +222,123 @@ hh.subscribe(xx=>{
 // 输出  1（第一秒推送）,2（第三秒推送）,3（第五秒推送）....
 ```
 
-### 数据处理
+
+## Subject
+### Subject 和 Observable
+`Subject` 是一种特殊的 `Observable`（可观察对象），它既是 `Observable` 对象，又是 `Observer` 对象；它允许将值多播给多个订阅者，而普通的 `Observable` 是单播的（每个已订阅的观察者都拥有 `Observable` 的独立执行）。
+
+`Subject` 是观察者模式的实现，它继承了 `Obsevalbe`。当有观察者订阅它时，它将订阅者添加到观察者列表中，它每次接收到新值时，它会遍历观察者列表，调用其 `next` 方法，将值推送出去。`Subject` 用法如下
+```typescript
+import { Subject } from 'rxjs';
+....//代码块
+
+_oob=new Subject<any>();
+....//代码块
+
+this._oob.subscribe((xx)=>{
+  console.log('observerA订阅到的值为：'+xx);
+})
+this._oob.subscribe((xx)=>{
+  console.log('observerB订阅到的值为：'+xx);
+})
+
+this._oob.next(1);
+this._oob.next(2);
+```
+
+上述代码在浏览控制台中输出如下图所示
+![](https://bingolil.github.io/images/angular-rxjs-subject.png)
+
+### BehaviorSubject 
+有时我们希望 `Subject` 能保存当前的最新状态，而不是单纯的对象推送，即每新增加一个观察者，当前 `Subuject` 能够立即向新增加的观察者推送最新的值，而不是没有响应。具体代码如下所示
+```typescript
+import { Subject } from 'rxjs';
+....//代码块
+
+_oob=new Subject<any>();
+....//代码块
+
+this._oob.subscribe((xx)=>{
+  console.log('observerA订阅到的值为：'+xx);
+})
+
+this._oob.next(1);//发送值
+this._oob.next(2);//发送值
+
+setTimeout(()=>{
+  this._oob.subscribe((xx)=>{
+    console.log('observerB订阅到的值为：'+xx);
+  })
+},1000)
+```
+
+在浏览器控制台输出结果如下图所示
+
+![](https://bingolil.github.io/images/angular-rxjs-be1.png)
+
+从上图中，可以看到 `observerB` 没有订阅到数据，因为 `obseverB` 订阅 `_oob` 后，`_oob` 没有再调用 `next` 推送数据。很多时候我们希望 `Subject` 能保存当前的最新状态，当新增订阅者时，该订阅者可以获取当前 `Subject` 的最新状态。完成该功能，需要使用 `BehaviorSubject` 对象，其代码如下所示
+```typescript
+import { BehaviorSubject } from 'rxjs';
+....//代码块
+
+_oob=new BehaviorSubject<any>(0); //设定初始值
+....//代码块
+
+this._oob.subscribe((xx)=>{
+  console.log('observerA订阅到的值为：'+xx);
+})
+
+this._oob.next(1);//发送值
+this._oob.next(2);//发送值
+
+setTimeout(()=>{
+  this._oob.subscribe((xx)=>{
+    console.log('observerB订阅到的值为：'+xx);
+  })
+},1000)
+```
+
+浏览器控制台中输出如下图所示
+
+![](https://bingolil.github.io/images/angular-rxjs-be2.png)
+
+从上图中可以看到，`observerB` 获取到了 `_obb` 对象的最新状态，并且最开始时，`Subject` 对象推送了一个 `0`
+
+> **注意：**因为新增订阅者需要获取到当前 `Subject` 最新的状态，所以在实例化 `BehaviorSubject` 需要一个初始状态
+
+### ReplaySubject
+有时我们希望 `Subject` 新增订阅者后，能向新增的订阅者发送 `Subjcet` 的最新的几次状态，实现该功能，需要使用到 `ReplaySubject` 对象，其代码如下所示
+```typescript
+import { ReplaySubject } from 'rxjs';
+....//代码块
+
+_ss=new ReplaySubject<any>(2); //2 代表的是发送最新的几次状态
+....//代码块
+
+this._ss.subscribe((xx)=>{
+  console.log("observerX订阅到的值为："+xx)
+})
+
+this._ss.next(1);
+this._ss.next(2);
+this._ss.next(3);
+
+setTimeout(()=>{
+  this._ss.subscribe((xx)=>{
+    console.log('observerY订阅到的值为：'+xx);
+  })
+},1000)
+```
+
+浏览器控制台中的输出如下图所示
+
+![](https://bingolil.github.io/images/angular-rxjs-rey.png)
+
+从上图中，可以看到 `_ss` 向1秒后新增加的订阅者发送了两次最新的状态
+
+> **`BehaviorSubject(1)` 和 `ReplaySubject(1)` 的区别：**可能有人认为 `BehaviorSubject(1)` 等同于 `ReplaySubject(1)`，其实它们是不一样的，有很大的区别，创建 `BehaviorSubject` 对象时，其参数是对象的初始值，用于表示对象的初始状态；而 `ReplaySubject` 是事件的回放，其参数代表回放的次数
+
+## Opterator
 `Rxjs` 提供了大量的操作符来进行数据处理，常见的操作符如下所示
 
 >**map**：从内部的 `Observable` 获取者，操作完成后返回给父级流对象

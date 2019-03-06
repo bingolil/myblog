@@ -173,7 +173,7 @@ devtool: 'eval-source-map', //新增属性
 
 package.json
 ```
-//部分内容，该
+//部分内容
 "scripts": {
   "build": "webpack --mode production",
   "dev": "webpack --mode development",
@@ -191,13 +191,13 @@ module.exports={
   entry:__dirname + '/app/main.js', //entry入口
   output:{
     path:__dirname + '/public', //出口文件夹
-	filename:'bundle.js'        //名称
+    filename:'bundle.js'        //名称
   },
   devServer:{
-	contentBase:__dirname+"/public", //本地服务器加载页面所在的目录
-	historyApiFallback:true, //不跳转
-	inline:true,  //实时刷新
-	port:3200
+    contentBase:__dirname+"/public", //本地服务器加载页面所在的目录
+    historyApiFallback:true, //不跳转
+    inline:true,  //实时刷新
+    port:3200
   }
 }
 ```
