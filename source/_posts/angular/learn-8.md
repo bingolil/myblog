@@ -98,7 +98,7 @@ this.oob=bb.subscribe(dd); //订阅
 this.oob.unsubscribe(); //取消订阅
 ```
 
-### 创建Observable
+### 创建 Observable
 `Opterator` 提供了多种操作符来创建 `Observable` 对象，具体如下所示
 
 >**of**：处理数据，字符串或数字
@@ -343,7 +343,7 @@ setTimeout(()=>{
 
 >**map**：从内部的 `Observable` 获取者，操作完成后返回给父级流对象
 
-```tyepscript
+```typescript
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators'
 ....//代码块
@@ -356,7 +356,7 @@ aa.pipe(map(x=>{return x*x})).subscribe((xx)=>{
 
 >**debounceTime**：主要用于防抖操作，减少订阅次数
 
-```tyepscript
+```typescript
 import { of } from 'rxjs';
 import { debounceTime } from 'rxjs/operators'
 ....//代码块
@@ -369,7 +369,7 @@ aa.pipe(debounceTime(1000)).subscribe((xx)=>{
 
 >**filter**：用于过滤数据
 
-```tyepscript
+```typescript
 import { of } from 'rxjs';
 import { filter } from 'rxjs/operators'
 ....//代码块
@@ -382,7 +382,7 @@ aa.pipe(filter(xx=>xx%2==0)).subscribe((xx)=>{
 
 >**reduce**
 
-```tyepscript
+```typescript
 import { of } from 'rxjs';
 import { reduce } from 'rxjs/operators'
 ....//代码块
