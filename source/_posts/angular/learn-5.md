@@ -406,8 +406,8 @@ joke/detail/detail.component.html
 </div>
 
 <div *ngIf="secJoke">
-	<p>笑话id:{{secJoke.id}}</p>
-    <p>笑话描述:{{secJoke.desc}}</p>
+  <p>笑话id:{{secJoke.id}}</p>
+  <p>笑话描述:{{secJoke.desc}}</p>
 </div>
 ```
 
