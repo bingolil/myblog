@@ -198,7 +198,7 @@ ee.subscribe({
 
 具体例子如下所示
 ```typescript
-import { throwError } from 'rxjs';
+import { interval } from 'rxjs';
 ....//代码块
 
 const ff=interval(1000);
