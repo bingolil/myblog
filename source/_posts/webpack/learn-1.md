@@ -32,7 +32,9 @@ npm install -g webpack-cli //webpack4 并没有和 webpack3 一样包含 webapck
 ```
 ### 基本的webpack使用
 1，在 `cmd` 环境中，进入某个文件目录（项目位置），使用命令 `md learn-webapck` 新建 `learn-webapck` 文件夹，`cd learn-webpack` 进入该文件夹下
-2，使用命令 `npm init -y` 创建默认的 `package.json` 文件，使用命令 `npm install --save-dev webpack` 下载 `webpack` 到本地（非全局），使用命令 `npm install --save-dev webapck-cli` 下载 `webpack-cli` 到本地（项目中，非全局）
+
+2，使用命令 `npm init -y` 创建默认的 `package.json` 文件，使用命令 `npm install --save-dev webpack` 下载 `webpack` 到本地（非全局），使用命令 `npm install --save-dev webpack-cli` 下载 `webpack-cli` 到本地（项目中，非全局）
+
 3，在 `learn-webpack` 文件下新建 `app文件夹` 和 `public文件夹`，在 `public文件夹` 下创建 `index.html` 文件，在 `app文件夹` 下创建 `main.js` 文件。此时，项目的目录结构如下所示
 
 ![](https://bingolil.github.io/images/learn-webpack-1.png)
