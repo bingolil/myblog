@@ -2,6 +2,7 @@
 categories: Angular
 date: 2019-01-07
 tags: [Angular,Angular表单]
+description: Angular 提供了两种不同的方法来通过表单处理用户输入：响应式表单和模板驱动表单。 两者都从视图中捕获用户输入事件、验证用户输入、创建表单模型、修改数据模型，并提供跟踪这些更改的途径。
 ---
 在 `Angular` 中，提供了两种表单来处理用户的输入，`模板驱动表单` 和 `响应式表单`。
 ## 建立表单模型
@@ -314,7 +315,7 @@ forbidden.directive.ts
 export function forbiddenValitors(nameRe:RegExp):ValidatorFn{
   return (control:AbstractControl):{[key:string]:any} | null =>{
     const forbidden=nameRe.test(control.value);
-    return forbidden?{'forbiddenName':{value:control.value}}:null;
+    return forbidden ? {'forbiddenName':{value:control.value}} : null;
   }
 }
 ```
@@ -366,10 +367,8 @@ Html
 </p>
 ```
 
-在 `Ts` 代码中，使用 `get name()` 将 `Charter` 中的
-
 ### 异步验证
-异步验证在表单中也是重要的一部分，其应用的场景一般需要进行远程通讯。比如用户在使用表单进行注册时，规定用户名不能和已有的用户名相同，由于前端不知道已有的用户名有哪些，这就需要将已经输入的用户名去和后台数据库里面的用户名相匹配。
+异步验证也是表单验证中重要的一部分，其应用的场景一般需要进行远程通讯。比如用户在使用表单进行注册时，规定用户名不能和已有的用户名相同，由于前端不知道已有的用户名有哪些，这就需要将已经输入的用户名去和后台数据库里面的用户名相匹配。
 
 其异步验证代码如下所示
 
@@ -405,7 +404,7 @@ export class AsycNameValidatorFn implements AsyncValidator {
 
   validate(ctrl:AbstractControl):Promise<ValidationErrors | null> | Observable<ValidationErrors | null>{
     return this.asycService._can_use(ctrl.value).pipe(
-      map(xx=>(xx?{can_use:false}:null)),
+      map(xx=>(xx ? {can_use:false} : null)),
       catchError(()=>null)
     )
   }
@@ -414,23 +413,27 @@ export class AsycNameValidatorFn implements AsyncValidator {
 
 reactive.component.ts（使用异步验证器）
 ```typescript
+import { FormBuilder } from '@angular/forms';
 import { AsycNameValidatorFn } from '../asyc-name-validator';
 ...//代码块
 
+constructor(private fb:FormBuilder,private asycnameValidator:AsycNameValidatorFn) { }
+
 Charter=this.fb.group({
-  name:['xx',
-    {asyncValidators:[ //asyncValidators 这个词写法固定
-      this.asycnameValidator.validate.bind(this.asycnameValidator)],
+  name:['xx', 
+    {
+      validators:[Validators.required], // 同步校验通过才执行异步校验
+      asyncValidators:[this.asycnameValidator.validate.bind(this.asycnameValidator)],
       updateOn: 'blur' //blur 失去焦点时验证
     }
   ],
   age:[10],
   email:[''],
   address:this.fb.group({
-  province:[''],
-  city:[''],
-  county:[''],
-  zip:['']
+    province:[''],
+    city:[''],
+    county:[''],
+    zip:['']
   })
 })
 ```

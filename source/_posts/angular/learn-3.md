@@ -2,6 +2,7 @@
 categories: Angular
 date: 2018-11-23
 tags: [Angular,Angular生命周期钩子]
+description: 当 Angular 实例化组件类并渲染组件视图及其子视图时，组件实例的生命周期就开始了。生命周期一直伴随着变更检测，Angular 会检查数据绑定属性何时发生变化，并按需更新视图和组件实例。当 Angular 销毁组件实例并从 DOM 中移除它渲染的模板时，生命周期就结束了。当 Angular 在执行过程中创建、更新和销毁实例时，指令就有了类似的生命周期。
 ---
 在`Angular` 中，每个组件都有一个被 `Angular` 管理的生命周期。
 

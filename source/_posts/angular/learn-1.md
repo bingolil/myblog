@@ -2,6 +2,7 @@
 categories: Angular
 date: 2018-11-02
 tags: [Angular安装,Angular]
+description: Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。
 ---
 ## 安装Angular6
 前提准备：电脑上已经存在 `node.js`（版本 为8.X或者10.X），因为使用 `Angular` 一般都需要它的 `angular/cli` 脚手架，需要使用 `ndoe.js` 的包管理器 `npm`。
@@ -179,7 +180,7 @@ ng new myApp --routing //这个命令同上，不同之处这个命令会在项�
 | 模块| ng generate module home |  ng g m home  |
 
 **注意：**
-1，`Angular` 以前的服务使用的依赖注入，在 `Angular6` 版本中，服务采用的相依注入
+1，`Angular` 以前的服务使用的依赖注入，在 `Angular6` 版本中，服务采用的相依注入。
 2，创建组件 `component` 和类 `class` 都是 `c` 开头，所以使用最简写法有一定区别，如下所示，创建组件使用的是 `ng g c`，创建类时使用的是 `ng g cl`。
 ```
 ng g c 组件名 //创建组件时使用的是c

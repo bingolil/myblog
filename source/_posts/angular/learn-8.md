@@ -2,6 +2,7 @@
 categories: Angular
 date: 2019-02-01
 tags: [Angular,Rxjs]
+description: RxJS（响应式扩展的 JavaScript 版）是一个使用可观察对象进行响应式编程的库，它让组合异步代码和基于回调的代码变得更简单。
 ---
 ## 什么是Rxjs
 `Rxjs` 是 `javascript` 的响应式扩展。其功能是利用响应式编程的模式来实现 `javascript` 的异步编程
