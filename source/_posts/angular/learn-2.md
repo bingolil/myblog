@@ -287,7 +287,7 @@ A.component.ts
 .... //代码块
 public setLocal():void{
   window.localStorage.setItem("json",JSON.stringify({name:'jack',age:24}));
-  }
+}
 ```
 
 A模板代码如下所示
