@@ -51,7 +51,7 @@ export class ChildComponent implements OnInit,OnChanges {
   ngOnInit() {
     console.log('A')
   }
-  //ngOnChanges钩子变化的信息存储在SimpleChanges对象里面
+  //ngOnChanges钩子变化的信息存储在changes对象里面
   ngOnChanges(changes: SimpleChanges) {
     console.log(changes);
   }
