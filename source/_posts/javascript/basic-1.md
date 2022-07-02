@@ -57,7 +57,7 @@ changeVal(); // 输出undefined
 ```
 在上述代码块中，`changeVal` 函数中的 `if` 条件不管是真还是假，其输出都是 `undefined`
 
-## let和const
+## let 和 const
 ### let
 `let` 的声明存在以下特征
 > * `let` 声明的变量具有块级作用域的特征
@@ -105,7 +105,7 @@ value = 'lucy'; // 报错：Assignment to constant variable.
 const value;
 console.log(value); // 报错：Missing initializer in const declaration 
 ```
-## var和let的区别
+## var 和 let的区别
 `var` 和 `let` 的区别，其例子如下所示
 ```javascript
 for (var j = 0; j < 5; j++) {
